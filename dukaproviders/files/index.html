@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login To your admin account</title>
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-page">
+  <div class="form">
+    <!-- <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form> -->
+    <img src="../assets/img/g2366.png" alt="" class="logo" width="100">
+    <br><br><br>
+    <form class="login-form" method="post" >
+      <input type="text" id="username" placeholder="username"/>
+      <input type="password" id="password" placeholder="mot de passe"/>
+      <button type="submit" id="connexion-button">Connexion</button>
+      <!-- <p class="message">Not registered? <a href="#">Create an account</a></p> -->
+    </form>
+  </div> 
+</div>
+<div class="modal" id="loadingmodal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Patientez svp</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="loader"></div>
+        
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- partial -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="../assets/js/cript.js"></script> -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script>
+    $("#connexion-button").click((ev)=> {
+    // $('#loadingmodal').modal();
+    ev.preventDefault();
+    $('#loadingmodal').modal({
+      keyboard: false,
+      backdrop: 'static'
+    });
+    let user = document.querySelector('#username').value;
+    let pass = document.querySelector('#password').value;
+    
+    
+  //  alert("sdsds");
+  // window.location = "www.google.com";
+  // fetch('http://127.0.0.1:8000', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Accept': 'application/json',
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: {username: user, passwording: pass, name: 'admin'}
+  // }).then(data => {
+    
+  //   data.json().then(res => {
+  //     console.log(res); 
+  //     localStorage.setItem('user', res.data)
+  //     // window.location = 'dashboard.html';
+  //   }); 
+  //   // console.log(dat);
+    
+  // }
+  // ).catch(err=> {
+  //   alert("Une erreur est survenu, veuillez reessayer svp");
+  //   console.log("err", err)});
+  
+  //   });
+
+    $.post('https://backend.dukabusiness.com/index.php?action=login', {username: user, password: pass, name: 'admin'}, function (response, status) {
+      alert("success");
+      console.log(JSON.parse(response));
+    }).fail(error => {
+      let result = JSON.parse(error.responseText); 
+      console.log(JSON.parse(error.responseText)['data']);
+      if (result['data'] != null) {
+        localStorage.setItem('user', result['data'])
+        window.location = 'dashboard.html';
+      } else {
+        alert("Une erreur est survenue ! Veuillez reessayer svp");
+      }
+    })
+
+});
+
+    
+    
+  </script>
+</body>
+</html>

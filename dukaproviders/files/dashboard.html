@@ -1,0 +1,817 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Duka service provider dashboard
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <!-- CSS Files -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <div class="logo">
+        <a href="dashboard.html" class="simple-text logo-mini">
+          <div class="logo-image-small">
+            <img src="../assets/img/g2391.png">
+          </div>
+          <!-- <p>CT</p> -->
+        </a>
+        <a href="dashboard.html" class="simple-text logo-normal">
+          Duka admin
+          <!-- <div class="logo-image-big">
+            <img src="../assets/img/logo-big.png">
+          </div> -->
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="active ">
+            <a href="./dashboard.html">
+              <i class="nc-icon nc-bank"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a href="./commandes.html">
+              <i class="nc-icon nc-basket"></i>
+              <p>Commandes</p>
+            </a>
+          </li>
+          <!-- <li>
+            <a href="./icons.html">
+              <i class="nc-icon nc-cart-simple"></i>
+              <p>En cours</p>
+            </a>
+          </li> -->
+          <li>
+            <a href="./clients.html">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Clients</p>
+            </a>
+          </li>
+          <li>
+            <a href="./produits.html">
+              <i class="nc-icon nc-app"></i>
+              <p>Produits</p>
+            </a>
+          </li>
+          <li>
+            <a href="./map.html">
+              <i class="nc-icon nc-pin-3"></i>
+              <p>Maps</p>
+            </a>
+          </li>
+          <!-- <li>
+            <a href="./notifications.html">
+              <i class="nc-icon nc-bell-55"></i>
+              <p>Notifications</p>
+            </a>
+          </li>
+          <li>
+            <a href="./user.html">
+              <i class="nc-icon nc-single-02"></i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li>
+            <a href="./tables.html">
+              <i class="nc-icon nc-tile-56"></i>
+              <p>Table List</p>
+            </a>
+          </li>
+          <li>
+            <a href="./typography.html">
+              <i class="nc-icon nc-caps-small"></i>
+              <p>Typography</p>
+            </a>
+          </li> -->
+          <!-- <li class="active-pro">
+            <a href="./upgrade.html">
+              <i class="nc-icon nc-spaceship"></i>
+              <p>Upgrade to PRO</p>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="javascript:;">Duka services admin</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <!-- <form>
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="nc-icon nc-zoom-split"></i>
+                  </div>
+                </div>
+              </div>
+            </form> -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link btn-magnify" href="javascript:;">
+                  <i class="nc-icon nc-layout-11"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Stats</span>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item btn-rotate dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="nc-icon nc-bell-55"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Notifications</span>
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Nouvelles commandes</a>
+                  <a class="dropdown-item" href="#">Stock en baisse</a>
+                  <a class="dropdown-item" href="#">Livraison validee</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn-rotate" href="javascript:;">
+                  <i class="nc-icon nc-settings-gear-65"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Account</span>
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <a href="./commandes.html">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-basket text-warning"></i>
+                    </div>
+                  </div>
+                  
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Commandes</p>
+                      <p class="card-title" id="commandes-nbr">0<p>
+                    </div>
+
+                  </div>
+                
+                </div>
+              </div>
+              <!-- <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-refresh"></i>
+                  Update Now
+                </div>
+              </div> -->
+            </div>
+          </a>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-money-coins text-success"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    
+                    <div class="numbers">
+                      <p class="card-category">Revenue</p>
+                      <p class="card-title" id="revenue-nbr">$ 0<p>
+                    </div>
+                  
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-calendar-o"></i>
+                  Last day
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <a href="./produits.html">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-app text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    
+                    <div class="numbers">
+                      <p class="card-category">Produits</p>
+                      <p class="card-title" id="products-nbr">0<p>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-clock-o"></i>
+                  Mois
+                </div>
+              </div> -->
+            </div>
+          </a>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <a href="./clients.html">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-single-02 text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    
+                    <div class="numbers">
+                      <p class="card-category">Clients</p>
+                      <p class="card-title" id="clients-nbr">0<p>
+                    </div>
+                
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-refresh"></i>
+                  Update now
+                </div>
+              </div> -->
+            </div>
+          </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header ">
+                <h5 class="card-title">Satistiques des commandes</h5>
+                <p class="card-category">Performance sous 24 Heures </p>
+              </div>
+              <div class="card-body ">
+                <canvas id=chartHours width="400" height="100"></canvas>
+              </div>
+              <!-- <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-history"></i> Actualiser 3 minutes avant
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card ">
+              <div class="card-header ">
+                <h5 class="card-title">Statistiques ventes</h5>
+                <p class="card-category">Mois de juin</p>
+              </div>
+              <div class="card-body ">
+                <canvas id="chartEmail"></canvas>
+              </div>
+              <div class="card-footer ">
+                <div class="legend">
+                  <i class="fa fa-circle text-primary"></i> Vendus
+                  <i class="fa fa-circle text-warning"></i> Invendus
+                  <i class="fa fa-circle text-danger"></i> Gacher
+                  <!-- <i class="fa fa-circle text-gray"></i> Unopened -->
+                </div>
+                <!-- <hr>
+                <div class="stats">
+                  <i class="fa fa-calendar"></i> Number of emails sent
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-title">Satisfaction client</h5>
+                <p class="card-category">Evolution de la satisfaction de vos clients</p>
+              </div>
+              <div class="card-body">
+                <canvas id="speedChart" width="400" height="100"></canvas>
+              </div>
+              <div class="card-footer">
+                <div class="chart-legend">
+                  <i class="fa fa-circle text-info"></i> Content
+                  <i class="fa fa-circle text-warning"></i> Mecontent
+                </div>
+                <!-- <hr />
+                <div class="card-stats">
+                  <i class="fa fa-check"></i> Data information certified
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <footer class="footer footer-black  footer-white ">
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="footer-nav">
+              <ul>
+                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
+                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
+                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
+              </ul>
+            </nav>
+            <div class="credits ml-auto">
+              <span class="copyright">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer> -->
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+  <!-- <script src="../assets/demo/demo.js"></script> -->
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+      
+      demo = {
+  initPickColor: function() {
+    $('.pick-class-label').click(function() {
+      var new_class = $(this).attr('new-class');
+      var old_class = $('#display-buttons').attr('data-class');
+      var display_div = $('#display-buttons');
+      if (display_div.length) {
+        var display_buttons = display_div.find('.btn');
+        display_buttons.removeClass(old_class);
+        display_buttons.addClass(new_class);
+        display_div.attr('data-class', new_class);
+      }
+    });
+  },
+
+  initDocChart: function() {
+    chartColor = "#FFFFFF";
+
+    ctx = document.getElementById('chartHours').getContext("2d");
+
+    myChart = new Chart(ctx, {
+      type: 'line',
+
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+        datasets: [{
+            borderColor: "#6bd098",
+            backgroundColor: "#6bd098",
+            pointRadius: 0,
+            pointHoverRadius: 0,
+            borderWidth: 3,
+            data: [300, 310, 316, 322, 330, 326, 333, 345, 338, 354]
+          },
+          {
+            borderColor: "#f17e5d",
+            backgroundColor: "#f17e5d",
+            pointRadius: 0,
+            pointHoverRadius: 0,
+            borderWidth: 3,
+            data: [320, 340, 365, 360, 370, 385, 390, 384, 408, 420]
+          },
+          {
+            borderColor: "#fcc468",
+            backgroundColor: "#fcc468",
+            pointRadius: 0,
+            pointHoverRadius: 0,
+            borderWidth: 3,
+            data: [370, 394, 415, 409, 425, 445, 460, 450, 478, 484]
+          }
+        ]
+      },
+      options: {
+        legend: {
+          display: false
+        },
+
+        tooltips: {
+          enabled: false
+        },
+
+        scales: {
+          yAxes: [{
+
+            ticks: {
+              fontColor: "#9f9f9f",
+              beginAtZero: false,
+              maxTicksLimit: 5,
+              //padding: 20
+            },
+            gridLines: {
+              drawBorder: false,
+              zeroLineColor: "#ccc",
+              color: 'rgba(255,255,255,0.05)'
+            }
+
+          }],
+
+          xAxes: [{
+            barPercentage: 1.6,
+            gridLines: {
+              drawBorder: false,
+              color: 'rgba(255,255,255,0.1)',
+              zeroLineColor: "transparent",
+              display: false,
+            },
+            ticks: {
+              padding: 20,
+              fontColor: "#9f9f9f"
+            }
+          }]
+        },
+      }
+    });
+
+  },
+  initPerHours: function(datax, datay) {
+    ctx = document.getElementById('chartHours').getContext("2d");
+
+    myChart = new Chart(ctx, {
+      type: 'line',
+
+      data: {
+        labels: datay,
+        datasets: [{
+            borderColor: "#6bd098",
+            backgroundColor: "#6bd098",
+            pointRadius: 0,
+            pointHoverRadius: 0,
+            borderWidth: 3,
+            data: datax
+          },
+          // {
+          //   borderColor: "#f17e5d",
+          //   backgroundColor: "#f17e5d",
+          //   pointRadius: 0,
+          //   pointHoverRadius: 0,
+          //   borderWidth: 3,
+          //   data: [320, 340, 365, 360, 370, 385, 390, 384, 408, 420]
+          // },
+          // {
+          //   borderColor: "#fcc468",
+          //   backgroundColor: "#fcc468",
+          //   pointRadius: 0,
+          //   pointHoverRadius: 0,
+          //   borderWidth: 3,
+          //   data: [370, 394, 415, 409, 425, 445, 460, 450, 478, 484]
+          // }
+        ]
+      },
+      options: {
+        legend: {
+          display: false
+        },
+
+        tooltips: {
+          enabled: false
+        },
+
+        scales: {
+          yAxes: [{
+
+            ticks: {
+              fontColor: "#9f9f9f",
+              beginAtZero: false,
+              maxTicksLimit: 5,
+              //padding: 20
+            },
+            gridLines: {
+              drawBorder: false,
+              zeroLineColor: "#ccc",
+              color: 'rgba(255,255,255,0.05)'
+            }
+
+          }],
+
+          xAxes: [{
+            barPercentage: 1.6,
+            gridLines: {
+              drawBorder: false,
+              color: 'rgba(255,255,255,0.1)',
+              zeroLineColor: "transparent",
+              display: false,
+            },
+            ticks: {
+              padding: 20,
+              fontColor: "#9f9f9f"
+            }
+          }]
+        },
+      }
+    });
+
+
+  },
+
+  initChartIdeas: function(data1, data2) {
+    var speedCanvas = document.getElementById("speedChart");
+
+    var dataFirst = {
+      data: data1,
+      fill: false,
+      borderColor: '#fbc658',
+      backgroundColor: 'transparent',
+      pointBorderColor: '#fbc658',
+      pointRadius: 4,
+      pointHoverRadius: 4,
+      pointBorderWidth: 8,
+    };
+
+    var dataSecond = {
+      data: data2,
+      fill: false,
+      borderColor: '#51CACF',
+      backgroundColor: 'transparent',
+      pointBorderColor: '#51CACF',
+      pointRadius: 4,
+      pointHoverRadius: 4,
+      pointBorderWidth: 8
+    };
+
+    var speedData = {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      datasets: [dataFirst, dataSecond]
+    };
+
+    var chartOptions = {
+      legend: {
+        display: false,
+        position: 'top'
+      }
+    };
+
+    var lineChart = new Chart(speedCanvas, {
+      type: 'line',
+      hover: false,
+      data: speedData,
+      options: chartOptions
+    });
+  },
+
+
+  initChartsProducts: function(sold, unsold, lost) {
+    chartColor = "#FFFFFF";
+
+    
+    ctx = document.getElementById('chartEmail').getContext("2d");
+
+    myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: [1, 2, 3],
+        datasets: [{
+          label: "Emails",
+          pointRadius: 0,
+          pointHoverRadius: 0,
+          backgroundColor: [
+            '#e3e3e3',
+            '#4acccd',
+            '#fcc468',
+          
+          ],
+          borderWidth: 0,
+          data: [sold, unsold, lost]
+        }]
+      },
+
+      options: {
+
+        legend: {
+          display: false
+        },
+
+        pieceLabel: {
+          render: 'percentage',
+          fontColor: ['white'],
+          precision: 2
+        },
+
+        tooltips: {
+          enabled: false
+        },
+
+        scales: {
+          yAxes: [{
+
+            ticks: {
+              display: false
+            },
+            gridLines: {
+              drawBorder: false,
+              zeroLineColor: "transparent",
+              color: 'rgba(255,255,255,0.05)'
+            }
+
+          }],
+
+          xAxes: [{
+            barPercentage: 1.6,
+            gridLines: {
+              drawBorder: false,
+              color: 'rgba(255,255,255,0.1)',
+              zeroLineColor: "transparent"
+            },
+            ticks: {
+              display: false,
+            }
+          }]
+        },
+      }
+    });
+
+    
+  },
+
+  
+
+  showNotification: function(from, align, content) {
+    color = 'primary';
+
+    $.notify({
+      icon: "nc-icon nc-bell-55",
+      message: content
+
+    }, {
+      type: color,
+      timer: 8000,
+      placement: {
+        from: from,
+        align: align
+      }
+    });
+  }
+
+};
+
+demo.initChartsProducts(0, 0, 100 );
+demo.initPerHours([1, 5, 10, 3, 15, 30], ["1:00", "2:00", "3:00", "4:00", "5:00", "20:00"]);
+demo.initChartIdeas([2, 3, 2, 5, 12, 3], [3, 5, 0, 6, 15])
+demo.showNotification("top", "right", "Bienvenu dans votre dashboard d'administration");
+      //get user values
+      fetch('https://backend.dukabusiness.com/index.php?action=historical&name=produitsFournisseur&id=2', {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    // body: JSON.stringify({username: user, password: password, name: "admin", role: 'admin'})
+  }).then(data => {
+    
+    data.json().then(res => {
+      console.log(res);
+      if (res.data != null) {
+        $('#products-nbr').text(res.data.length)
+        localStorage.setItem('products', res.data);
+      } else {
+        $('#products-nbr').text(0)
+        localStorage.setItem('products', []);
+      }
+    }); 
+    // console.log(dat);
+    
+  }
+  ).catch(err=> {
+    alert("Une erreur est survenu, veuillez reessayer svp");
+    demo.showNotification("start", "right", "Un probleme est survenu , veuillez reessayer");
+    console.log("err", err)});
+    
+
+    fetch('https://backend.dukabusiness.com/index.php?action=historical&name=commandesClient&id=1', {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    // body: JSON.stringify({username: user, password: password, name: "admin", role: 'admin'})
+  }).then(data => {
+    
+    data.json().then(res => {
+      console.log(res); 
+      let clients = [];
+      if (res.data != null) {
+        $("#commandes-nbr").text(res.data.length);
+        // get clients 
+        res.data.forEach(element => {
+          if (clients.indexOf(element) == -1) {
+            clients.push(element)
+          };
+
+
+        });
+        $("#clients-nbr").text(clients.length);
+
+        localStorage.setItem('commandes', JSON.stringify(res.data));
+        // localStorage.setItem('clients', )
+        // localStorage.setItem('revenue', )
+      } else {
+        localStorage.setItem('commandes', []);
+        // localStorage.setItem('clients', [])
+        // localStorage.setItem('revenue', [])
+        $("#commandes-nbr").text("0");
+        $("#clients-nbr").text("0");
+        $("#revenue-nbr").text("0");
+      }
+      
+    }); 
+    // console.log(dat);
+    
+  }).catch(err=> {
+    alert("Une erreur est survenu, veuillez reessayer svp");
+    console.log("err", err)});
+    });
+
+    fetch('https://backend.dukabusiness.com/index.php?action=liste&categ=clientsFournisseur&id=2', {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    // body: JSON.stringify({username: user, password: password, name: "admin", role: 'admin'})
+  }).then(data => {
+    
+    data.json().then(res => {
+      console.log("fournisseurs", res); 
+      localStorage.setItem("clients", JSON.stringify(res.data))
+    });
+  }).catch(err=> {
+    alert("Une erreur est survenu, veuillez reessayer svp");
+    console.log("err", err)});
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Duka service provider dashboard
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <!-- CSS Files -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <style>
+.chat{
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+		.modal .card{
+			height: 500px;
+			border-radius: 15px !important;
+			background-color: rgba(0,0,0,0.4) !important;
+		}
+		.contacts_body{
+			padding:  0.75rem 0 !important;
+			overflow-y: auto;
+			white-space: nowrap;
+		}
+		.msg_card_body{
+			overflow-y: auto;
+		}
+		.modal .card-header{
+			border-radius: 15px 15px 0 0 !important;
+			border-bottom: 0 !important;
+		}
+	 .modal .card-footer{
+		border-radius: 0 0 15px 15px !important;
+			border-top: 0 !important;
+	}
+		.container{
+			align-content: center;
+		}
+		.search{
+			border-radius: 15px 0 0 15px !important;
+			background-color: rgba(0,0,0,0.3) !important;
+			border:0 !important;
+			color:white !important;
+		}
+		.search:focus{
+		     box-shadow:none !important;
+           outline:0px !important;
+		}
+		.type_msg{
+			background-color: rgba(0,0,0,0.3) !important;
+			border:0 !important;
+			color:white !important;
+			height: 60px !important;
+			overflow-y: auto;
+		}
+			.type_msg:focus{
+		     box-shadow:none !important;
+           outline:0px !important;
+		}
+		.attach_btn{
+	border-radius: 15px 0 0 15px !important;
+	background-color: rgba(0,0,0,0.3) !important;
+			border:0 !important;
+			color: white !important;
+			cursor: pointer;
+		}
+		.send_btn{
+	border-radius: 0 15px 15px 0 !important;
+	background-color: rgba(0,0,0,0.3) !important;
+			border:0 !important;
+			color: white !important;
+			cursor: pointer;
+		}
+		.search_btn{
+			border-radius: 0 15px 15px 0 !important;
+			background-color: rgba(0,0,0,0.3) !important;
+			border:0 !important;
+			color: white !important;
+			cursor: pointer;
+		}
+		.contacts{
+			list-style: none;
+			padding: 0;
+		}
+		.contacts li{
+			width: 100% !important;
+			padding: 5px 10px;
+			margin-bottom: 15px !important;
+		}
+	.modal .active{
+			background-color: rgba(0,0,0,0.3);
+	}
+		.user_img{
+			height: 70px;
+			width: 70px;
+			border:1.5px solid #f5f6fa;
+		
+		}
+		.user_img_msg{
+			height: 40px;
+			width: 40px;
+			border:1.5px solid #f5f6fa;
+		
+		}
+	.img_cont{
+			position: relative;
+			height: 70px;
+			width: 70px;
+	}
+	.img_cont_msg{
+			height: 40px;
+			width: 40px;
+	}
+	.online_icon{
+		position: absolute;
+		height: 15px;
+		width:15px;
+		background-color: #4cd137;
+		border-radius: 50%;
+		bottom: 0.2em;
+		right: 0.4em;
+		border:1.5px solid white;
+	}
+	.offline{
+		background-color: #c23616 !important;
+	}
+	.user_info{
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-left: 15px;
+	}
+	.user_info span{
+		font-size: 20px;
+		color: white;
+	}
+	.user_info p{
+	font-size: 10px;
+	color: rgba(255,255,255,0.6);
+	}
+	.video_cam{
+		margin-left: 50px;
+		margin-top: 5px;
+	}
+	.video_cam span{
+		color: white;
+		font-size: 20px;
+		cursor: pointer;
+		margin-right: 20px;
+	}
+	.msg_cotainer{
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-left: 10px;
+		border-radius: 25px;
+		background-color: #82ccdd;
+		padding: 10px;
+		position: relative;
+	}
+	.msg_cotainer_send{
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-right: 10px;
+		border-radius: 25px;
+		background-color: #78e08f;
+		padding: 10px;
+		position: relative;
+	}
+	.msg_time{
+		position: absolute;
+		left: 0;
+		bottom: -15px;
+		color: rgba(255,255,255,0.5);
+		font-size: 10px;
+	}
+	.msg_time_send{
+		position: absolute;
+		right:0;
+		bottom: -15px;
+		color: rgba(255,255,255,0.5);
+		font-size: 10px;
+	}
+	.msg_head{
+		position: relative;
+	}
+	#action_menu_btn{
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		color: white;
+		cursor: pointer;
+		font-size: 20px;
+	}
+	.action_menu{
+		z-index: 1;
+		position: absolute;
+		padding: 15px 0;
+		background-color: rgba(0,0,0,0.5);
+		color: white;
+		border-radius: 15px;
+		top: 30px;
+		right: 15px;
+		display: none;
+	}
+	.action_menu ul{
+		list-style: none;
+		padding: 0;
+	margin: 0;
+	}
+	.action_menu ul li{
+		width: 100%;
+		padding: 10px 15px;
+		margin-bottom: 5px;
+	}
+	.action_menu ul li i{
+		padding-right: 10px;
+	
+	}
+	.action_menu ul li:hover{
+		cursor: pointer;
+		background-color: rgba(0,0,0,0.2);
+	}
+	@media(max-width: 576px){
+	.contacts_card{
+		margin-bottom: 15px !important;
+	}
+	}
+
+  </style>
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <div class="logo">
+        <a href="dashboard.html" class="simple-text logo-mini">
+          <div class="logo-image-small">
+            <img src="../assets/img/g2391.png">
+          </div>
+          <!-- <p>CT</p> -->
+        </a>
+        <a href="dashboard.html" class="simple-text logo-normal">
+          Duka admin
+          <!-- <div class="logo-image-big">
+            <img src="../assets/img/logo-big.png">
+          </div> -->
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li >
+            <a href="./dashboard.html">
+              <i class="nc-icon nc-bank"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a href="./commandes.html">
+              <i class="nc-icon nc-basket"></i>
+              <p>Commandes</p>
+            </a>
+          </li>
+          <!-- <li>
+            <a href="./icons.html">
+              <i class="nc-icon nc-cart-simple"></i>
+              <p>En cours</p>
+            </a>
+          </li> -->
+          <li>
+            <a href="./clients.html">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Clients</p>
+            </a>
+          </li>
+          <li>
+            <a href="./livreurs.html">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Livreurs</p>
+            </a>
+          </li>
+          <li>
+            <a href="./drivers.html">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Chauffeurs</p>
+            </a>
+          </li>
+          <li>
+            <a href="./fournisseurs.html">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Frounisseurs</p>
+            </a>
+          </li>
+          <li class="active">
+            <a href="./produits.html">
+              <i class="nc-icon nc-app"></i>
+              <p>Produits</p>
+            </a>
+          </li>
+         
+          <!-- <li>
+            <a href="./notifications.html">
+              <i class="nc-icon nc-bell-55"></i>
+              <p>Notifications</p>
+            </a>
+          </li>
+          <li>
+            <a href="./user.html">
+              <i class="nc-icon nc-single-02"></i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li>
+            <a href="./tables.html">
+              <i class="nc-icon nc-tile-56"></i>
+              <p>Table List</p>
+            </a>
+          </li>
+          <li>
+            <a href="./typography.html">
+              <i class="nc-icon nc-caps-small"></i>
+              <p>Typography</p>
+            </a>
+          </li> -->
+          <!-- <li class="active-pro">
+            <a href="./upgrade.html">
+              <i class="nc-icon nc-spaceship"></i>
+              <p>Upgrade to PRO</p>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="javascript:;">Duka services admin</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <!-- <form>
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="nc-icon nc-zoom-split"></i>
+                  </div>
+                </div>
+              </div>
+            </form> -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link btn-magnify" href="javascript:;">
+                  <i class="nc-icon nc-layout-11"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Stats</span>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item btn-rotate dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="nc-icon nc-bell-55"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Notifications</span>
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Nouvelles commandes</a>
+                  <a class="dropdown-item" href="#">Stock en baisse</a>
+                  <a class="dropdown-item" href="#">Livraison validee</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn-rotate" href="javascript:;">
+                  <i class="nc-icon nc-settings-gear-65"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Account</span>
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Produits</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>image</th>
+                      <th>
+                        titre
+                      </th>
+                      <th>
+                        stock
+                      </th>
+                      <th>
+                        categorie
+                      </th>
+                      <th>
+                        code barre
+                      </th>
+                      <th>
+                        Prix
+                      </th>
+                      <th>
+                        Note
+                      </th>
+                      <th></th>
+                    </thead>
+                    <tbody>
+                    
+                      <tr>
+                        <td>
+                          <img src="../assets/img/damir-bosnjak.jpg" class="images" alt="" srcset="">
+                        </td>
+                        <td>
+                          Cannettes coca
+                        </td>
+                        <td>
+                           200 (cannettes) 
+                        </td>
+                        <td>
+                            Grocery
+                        </td>
+                        <td>
+                          123456146
+                        </td>
+                        
+                        <td>
+                          25
+                        </td>
+                        <td class="text-right">
+                          <i class="fa fa-star text-success"></i>
+                          <i class="fa fa-star text-success"></i>
+                          <i class="fa fa-star text-success"></i>
+                      </td>
+                        <td>
+                          <btn class="btn btn-sm btn-outline-success btn-round btn-icon" data-toggle="modal" data-target="#removeModal"><i class="fa fa-remove"></i></btn>
+                          <btn class="btn btn-sm btn-outline-success btn-round btn-icon" data-toggle="modal" data-target="#detailsModal"><i class="fa fa-list"></i></btn>
+                          <btn class="btn btn-sm btn-outline-success btn-round btn-icon" data-toggle="modal" data-target="#modifiersModal"><i class="fa fa-pen"></i></btn> 
+                        </td>
+                      </tr>
+                      
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <footer class="footer footer-black  footer-white ">
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="footer-nav">
+              <ul>
+                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
+                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
+                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
+              </ul>
+            </nav>
+            <div class="credits ml-auto">
+              <span class="copyright">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer> -->
+    </div>
+  </div>
+
+  <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Details de produit </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-4">Nom</div>
+            <div class="col-lg-8">
+              Viandes des 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">Description</div>
+            <div class="col-lg-8">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque odit quaerat eaque? Voluptatum cumque, dolorum eum dolorem nobis voluptas voluptatem iure quis commodi est voluptate soluta expedita aliquam omnis facere.
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Pret pour livraison</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Voulez-vous supprimer cette article ?
+          
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+          <button type="button" class="btn btn-primary">Oui</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+      demo.initChartsPages();
+    });
+
+    $('table').dataTable();
+  </script>
+</body>
+
+</html>
